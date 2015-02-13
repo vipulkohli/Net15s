@@ -45,7 +45,7 @@ public class Tracer{
 				str = str.substring( start, stop );
 				System.out.println( " Printed ok ");
 				System.out.println(str.substring(0, str.indexOf("ms")) );
-				toFile( str , "data.txt", true );
+				toFile( str , "data.html", true );
 			}
 			else{
 				System.out.println("Keywords not found");
