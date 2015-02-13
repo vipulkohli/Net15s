@@ -3,8 +3,44 @@ import java.util.*;
 import java.net.*;
 import javax.net.ssl.HttpsURLConnection;
 
-public class Tracer{
-
+public class Tracer extends Thread{
+	
+	private String mUrl;
+	private int mNation;
+	 
+	public Tracer(String inUrl, int inNation) {
+    	mNation = inNation;
+    	mUrl = inUrl;
+    	this.start();
+    }
+	
+	@Override
+	public void run(){
+		for (int repeat = 0; repeat < 1; repeat++)
+			try{
+				String str = sendPost(mUrl, mNation);
+				System.out.println(mUrl);
+				if(str.equals("reach"))
+					continue;
+				if(str.contains("Query limit is <b>0/20")){
+					System.out.println( "0 Query limit");
+					repeat--;
+					nap();
+					continue;
+				}
+				process( str );
+			}
+			catch(Exception e){  System.out.println("Connecting...."); nap(); repeat--; }
+	}
+	
+	private void nap(){
+		try{
+					Thread.sleep(10000);
+		}
+		catch(Exception e){
+		}
+	}
+	
 	public static void main(String[]args) throws Exception{
 		String [] list = getList();
 		runList(list);
@@ -12,34 +48,32 @@ public class Tracer{
 	
 	public static void runList( String [] list ) throws Exception{
 		System.out.println(list[0].length());
-		for(int k = 0; k < list.length; k++){
-			for(int nation = 1; nation <= 12; nation++)
-				for (int repeat = 0; repeat <= 1; repeat++)
+		for(int k = 139; k < list.length; k++){
+			for(int nation = 1; nation <= 12; nation += 6)
 				try{ 
 					System.out.println("Index: " + k);
 					String addy = list[k].replaceAll("\\n", "").replaceAll("\\r", "");
-					String str = sendPost(addy, nation); 
-					System.out.println(addy);
-					if(str.equals("reach"))
-						continue;
-					if(str.contains("Query limit is <b>0/20")){
-						repeat--;
-						Thread.sleep(10000);
-						continue;
-					}
-					process( str );
+					Tracer [] threads = {
+						new Tracer(addy, nation), 
+						new Tracer(addy, nation + 1),
+						new Tracer(addy, nation + 2),
+						new Tracer(addy, nation + 3),
+						new Tracer(addy, nation + 4),
+						new Tracer(addy, nation + 5)
+					};
+					threads[5].join();
 				}
-				catch(Exception e){ System.out.println("Connecting...."); Thread.sleep(10000); repeat--; }
+				catch(Exception e){ System.out.println("Connecting...."); Thread.sleep(10000); nation--; }
 		}
 	}
 	
-	public static void toFile(String str, String filename, boolean append) throws Exception{
+	public void toFile(String str, String filename, boolean append) throws Exception{
 		FileWriter fw = new FileWriter(filename, append);
 		fw.write( str + System.getProperty("line.separator") );
 		fw.close();
     }
 	
-	public static void process(String str) throws Exception{
+	public void process(String str) throws Exception{
 		try{
 			String hop = "<p>Traceroute to";
 			String endl = "<p>Multi-location";
