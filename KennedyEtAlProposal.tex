@@ -1,0 +1,137 @@
+
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes-this is V2.0-May 2012
+%\documentclass[letterpaper, twocolumn, 10pt]{article}
+\documentclass{sigcomm-alternate}
+\usepackage{setspace}
+\begin{document}
+%
+% --- Author Metadata here ---
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden-IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden-IF NEED BE.
+% --- End of Author Metadata ---
+\title{Visualization of Worldwide Internet Traffic and Routers}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+%\numberofauthors{4} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\numberofauthors{4}
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+{Thomas Kennedy}\\
+       \affaddr{Southern Methodist University}\\
+       \email{tkennedy@smu.edu}\\
+% 2nd. author
+\alignauthor
+{Alec Siems}\\
+       \affaddr{Southern Methodist University}\\
+       \email{asiems@smu.edu}\\
+\and  % use '\and' if you need 'another row' of author names
+% 3rd. author
+\alignauthor 
+{Jacob Adkins}\\
+       \affaddr{Southern Methodist University}\\
+       \email{jpadkins@smu.edu}\\
+% 4th. author
+\alignauthor 
+{Vipul Kohli}\\
+       \affaddr{Southern Methodist University}\\
+       \email{vkohli@smu.edu}
+}
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+\date{February 4 2015}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+
+\begin{abstract}
+    The motivation for this project is to provide an accessible representation of traffic throughout the Internet, which will clearly illustrate the distribution of routers and the usage/workload corresponding to each. This representation will be geographically aligned in a way so that the physical location of each router on the globe is correctly represented. Color coding and scaling thickness will aid in the aesthetic representation of this data.
+\end{abstract}
+
+\section{Research Methodology}
+
+Our first step is to determine a set of source and destination IP addresses with which we can conduct our traceroute operations in order to gather relevant data for analysis. These addresses are retrieved using a script that parses and aggregates URLs from university websites worldwide. Our second step is to use a script of our own design to pull from the addresses and execute the traceroute command, returning the IP address of each router along the route from the source IP address to the destination IP address. Our third step is to use another custom script which utilizes a publically available API that can automate the process of determining the geographic location of all the collected IP addresses. Our fourth step is to put the data into an easily accessible format, as well as begin our interim draft.  
+
+Our fifth step is to determine a background graphic for the world map onto which we will project the router traffic infographic. During this step we will also develop a legend for the map, and finalize any stylistic choices. Our sixth step is to add the routers onto the map. Depending on their traffic and location, separate sizes and colors of icons will be used. Our seventh step is to add the connections between the routers to the map. Depending on their traffic and location, separate sizes and line thicknesses will be used. Our eighth step is to analyze and draw conclusions from the data we collected and the resulting map graphic. Our final step is to write the project report.
+
+
+\section{Previous Work}
+
+William Cheswick and Hal Burch created the "Internet Mapping Project" in 1997 at Bell Labs, which since 1998 has collected traceroute data of more than a hundred thousand networks every day. While the project includes a visualization of the data, its main purpose is to display the growth of the internet over time. Our project will instead focus on the traffic and routers of the internet in its current state, and the projection of the data upon a map of the world, something the Internet Mapping Project does not include. \footnote{Cheswick, William. "The Internet Mapping Project"}
+
+Co-founder of Wired Magazine, Kevin Kelly, also started an "Internet Mapping Project", however his was a crowd-sourced image slide-show of how different people view the Internet. The images were a mix of conceptual, concrete, and comic. The project was a piece of artwork and not an informative map based on actual data.\footnote{http://kk.org/mt-files/internet-mapping/index.html}
+
+In February 2012, H.D. Moore attempted to send a ping to every IP address in the world. His results were surprisingly accurate and gave a good representation of available IP addresses across the globe. There were considerable downsides to his work, such as the complaints from law enforcement and hate mail from individuals not ecstatic about his work. Moore sent out over 3.7 billion outgoing messages, resulting in return messages from over 3 million destination IP addresses,  which equates to over 2 Terabytes worth of data.  Our timeframe and computing resources do not allow for this project to be as extensive as Moore's.\footnote{http://www.technologyreview.com/news/514066/what-happened-when-one-man-pinged-the-whole-internet/}
+
+Two possible resolution directions have appeared to improving the current Internet architecture's scalability problem:  separation from the main transit core and elimination of the edge networks. We may see which is empirically implemented through our research.\footnote{Meisel, D, et al. "Towards A New Internet Routing Architecture: Arguments for Separating Edges from Transit Core." http://conferences.sigcomm.org/hotnets/2008/papers/18.pdf }
+
+There is one popular tool that will help up locate the longitude and latitude of a particular IP address. The developer created a database of CSV files to help users pinpoint any IP address that is within the database. This will come in handy after we execute all traceroute commands and need to fill in our map.\footnote{http://dev.maxmind.com/geoip/legacy/geolite/}
+\section{Resources Needed}
+
+First, an appropriate list of URLs of the web sites of all university in the world is required from each continent. This list can be parsed from the page source of a web site we found (univ.cc). This HTML parser will most likely be self-programmed using JQuery. More research is required in either self-programming or finding a ip route data collection software that can iterate through several traceroute commands. After the traceroute ip routing data has been collected and dumped to a folder  or text file, the major nodes will need to ranked, so a text file parser and analyzer is required which will need to be researched or self-programmed. After the nodes are ranked, an appropriate mapping software still needs to be found. Recommendations would be helpful for the mapping software. This software needs to support different colors of lines and markers as well as including a legend. ShareLatex will be the software used to write our interim and final report drafts.
+
+%\vfill
+%\columnbreak
+
+\section{Research Plan}
+\indent
+\indent 5 February 2015 - Research Proposal Due \\
+\indent 12 February 2015 - Collected Destination URLs \\
+\indent 19 February 2015 - Traceroute Source/Destination \\
+\indent 26 February 2015 - Map Route IP Addresses to Location\\ 
+\indent 5 March 2015 - Format Data, Interim Draft \\
+\indent 5 March 2015 - Interim Draft Due \\
+\indent 12 March 2015 - Choose Map Graphic and Develop Legend \\
+\indent 19 March 2015 - Add Routers to Map \\
+\indent 26 March 2015 - Add Connections to Map \\
+\indent 2 April 2015 - Analyze and Draw Conclusions\\ 
+\indent 9 April 2015 - Finish Project Report and Presentation\\
+\end{document}
