@@ -28,7 +28,7 @@ public class Tracer{
 	
 	public static void toFile(String str, String filename, boolean append) throws Exception{
 		FileWriter fw = new FileWriter(filename, append);
-		fw.write( str );	
+		fw.write( str + System.getProperty("line.separator"));
 		fw.close();
     }
 	
