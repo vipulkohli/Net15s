@@ -14,21 +14,28 @@ public class Tracer{
 		System.out.println(list[0].length());
 		for(int k = 0; k < list.length; k++){
 			for(int nation = 1; nation <= 12; nation++)
+				for (int repeat = 0; repeat <= 1; repeat++)
 				try{ 
+					System.out.println("Index: " + k);
 					String addy = list[k].replaceAll("\\n", "").replaceAll("\\r", "");
 					String str = sendPost(addy, nation); 
 					System.out.println(addy);
 					if(str.equals("reach"))
 						continue;
+					if(str.contains("Query limit is <b>0/20")){
+						repeat--;
+						Thread.sleep(10000);
+						continue;
+					}
 					process( str );
 				}
-				catch(Exception e){ System.out.println("Connecting...."); Thread.sleep(1000); }
+				catch(Exception e){ System.out.println("Connecting...."); Thread.sleep(10000); repeat--; }
 		}
 	}
 	
 	public static void toFile(String str, String filename, boolean append) throws Exception{
 		FileWriter fw = new FileWriter(filename, append);
-		fw.write( str + System.getProperty("line.separator"));
+		fw.write( str + System.getProperty("line.separator") );
 		fw.close();
     }
 	
