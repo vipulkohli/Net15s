@@ -16,6 +16,7 @@ public class Tracer extends Thread{
 	
 	@Override
 	public void run(){
+		int k = 0;
 		for (int repeat = 0; repeat < 1; repeat++)
 			try{
 				String str = sendPost(mUrl, mNation);
@@ -25,6 +26,8 @@ public class Tracer extends Thread{
 				if(str.contains("Query limit is <b>0/20")){
 					System.out.println( "0 Query limit");
 					repeat--;
+					if( ++k > 10 )
+						break;
 					nap();
 					continue;
 				}
@@ -48,7 +51,7 @@ public class Tracer extends Thread{
 	
 	public static void runList( String [] list ) throws Exception{
 		System.out.println(list[0].length());
-		for(int k = 139; k < list.length; k++){
+		for(int k = 313; k < list.length; k++){
 			for(int nation = 1; nation <= 12; nation += 6)
 				try{ 
 					System.out.println("Index: " + k);
