@@ -26,7 +26,7 @@ public class Tracer extends Thread{
 				if(str.contains("Query limit is <b>0/20")){
 					System.out.println( "0 Query limit");
 					repeat--;
-					if( ++k > 10 )
+					if( ++k > 30 )
 						break;
 					nap();
 					continue;
@@ -51,7 +51,7 @@ public class Tracer extends Thread{
 	
 	public static void runList( String [] list ) throws Exception{
 		System.out.println(list[0].length());
-		for(int k = 532; k < list.length; k++){
+		for(int k = 1635; k < list.length; k++){
 			for(int nation = 1; nation <= 12; nation += 6)
 				try{ 
 					System.out.println("Index: " + k);

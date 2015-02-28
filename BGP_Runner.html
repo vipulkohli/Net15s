@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    &lt;head&gt;
+    <title></title>
+  </head>
+  <body>
+    <div id="blah">
+      <script src="https://stat.ripe.net/widgets/widget_api.js"></script>
+      <div class="statwdgtauto" id="testarea">
+        <script>ripestat.init("bgplay",{"unix_timestamps":"TRUE","ignoreReannouncements":false,"rrcs":"0,1,6,7,11,14","resource":"72.176.0.0/13"},null,{"show_controls":"yes","disable":[]})</script></div>
+    </div>
+    <script>
+
+alert( document.getElementById("blah").innerHTML.indexOf("Reload") );
+
+
+
+</script>
+  </body>
+</html>
