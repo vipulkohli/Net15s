@@ -1,777 +1,2106 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title></title>
+    <script src="https://stat.ripe.net/widgets/js/user_feedback.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets/js/user_feedback.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets/js/misc.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets/js/misc.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets/widgets/bgplay_v1.1.js?widget_api=2332-675e57901b94&amp;v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets/widgets/bgplay_v1.1.js?widget_api=2332-675e57901b94" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets/lib/js/jquery/jquery.raty.min.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets/lib/js/jquery/jquery.raty.min.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets/lib/js/jquery/jquery.poshytip.min.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets/lib/js/jquery/jquery.poshytip.min.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/widget/bgplay-ripestat/bgplay-ripestat-config.js?v=2332-675e57901b94" data-requiremodule="config" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/connectors/JsonWrapRipestat.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/connectors/JsonWrapRipestat.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/jquery.tinyscrollbar.min.js?v=2332-675e57901b94" data-requiremodule="tinyscrollbar" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/jquery.mousewheel.min.js?v=2332-675e57901b94" data-requiremodule="mousewheel" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/jquery-ui-timepicker-addon.js?v=2332-675e57901b94" data-requiremodule="timepicker" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/TreeMap.js?v=2332-675e57901b94" data-requiremodule="TreeMap" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/utils/validator.js?v=2332-675e57901b94" data-requiremodule="validator" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/utils/cssAlert.js?v=2332-675e57901b94" data-requiremodule="cssAlert" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/mustaches.js?v=2332-675e57901b94" data-requiremodule="mustaches" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/raphael.js?v=2332-675e57901b94" data-requiremodule="raphael" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/utils/graph.js?v=2332-675e57901b94" data-requiremodule="graphUtils" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/utils/compatibilityTricks.js?v=2332-675e57901b94" data-requiremodule="compatibilityTricks" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/dateFormat.js?v=2332-675e57901b94" data-requiremodule="dateFormat" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/underscore.js?v=2332-675e57901b94" data-requiremodule="underscore" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <link rel="stylesheet"
+      href="https://stat.ripe.net/widgets/lib/css/poshy-tip.custom.css"
+      type="text/css">
+    <style id="poshytip-css-tip-green" type="text/css">div.tip-green{visibility:hidden;position:absolute;top:0;left:0;}div.tip-green table, div.tip-green td{margin:0;font-family:inherit;font-size:inherit;font-weight:inherit;font-style:inherit;font-variant:inherit;}div.tip-green td.tip-bg-image span{display:block;font:1px/1px sans-serif;height:10px;width:10px;overflow:hidden;}div.tip-green td.tip-right{background-position:100% 0;}div.tip-green td.tip-bottom{background-position:100% 100%;}div.tip-green td.tip-left{background-position:0 100%;}div.tip-green div.tip-inner{background-position:-10px -10px;}div.tip-green div.tip-arrow{visibility:hidden;position:absolute;overflow:hidden;font:1px/1px sans-serif;}</style>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/wbrGraph2.js?v=2332-675e57901b94" data-requiremodule="wbrGraph" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/backbone.js?v=2332-675e57901b94" data-requiremodule="backbone" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/lib/raphael-pan.js?v=2332-675e57901b94" data-requiremodule="raphael-pan" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/widget/bgplayjs-common-model.js?v=2332-675e57901b94" data-requiremodule="model" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/utils/general.js?v=2332-675e57901b94" data-requiremodule="general" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Bgplay.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Bgplay.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Cluster.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Cluster.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Event.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Event.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Instant.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Instant.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Node.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Node.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Path.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Path.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Source.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Source.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Target.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/model/Target.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/widget/bgplay-ripestat/bgplay-ripestat-modules.js?v=2332-675e57901b94" data-requiremodule="modules" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay_ripestat/MainViewRipestat.js?v=2332-675e57901b94" data-requiremodule="MainView" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/BgpDataChecksView.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/BgpDataChecksView.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay_ripestat/ControllerQuerySimpleViewRipestat.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay_ripestat/ControllerQuerySimpleViewRipestat.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/InfoPanelView.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/InfoPanelView.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/GraphView.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/GraphView.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/TimelineView.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/TimelineView.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay_ripestat/ControllerViewRipestat.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay_ripestat/ControllerViewRipestat.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/LegendView.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/LegendView.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay_ripestat/NodePositionViewRipestat.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay_ripestat/NodePositionViewRipestat.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay_ripestat/OptionPopupViewRipestat.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay_ripestat/OptionPopupViewRipestat.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/OptionAnimationSpeedView.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/OptionAnimationSpeedView.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/OptionRestoreGraph.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/OptionRestoreGraph.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/OptionGraphDeep.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/OptionGraphDeep.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/OptionLinkWeight.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/OptionLinkWeight.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/main.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/main.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/controllerLight.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/controllerLight.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/controller.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/controller.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/NodeView.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/NodeView.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/PathView.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/bgplay/PathView.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/graph.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/graph.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/timeline.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/timeline.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/infoPanel.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/infoPanel.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/options.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/options.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/optionAnimationSpeed.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/optionAnimationSpeed.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/optionGraphDeep.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/optionGraphDeep.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/optionLinkWeight.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/optionLinkWeight.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/nodePosition.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/nodePosition.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/legend.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/legend.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/optionRestoreGraph.html.js?v=2332-675e57901b94" data-requiremodule="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/js_nocors/optionRestoreGraph.html.js" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <script src="https://stat.ripe.net/widgets//js/bgplay/v1.1/main.js?v=2332-675e57901b94" data-requiremodule="main" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script>
+    <link rel="stylesheet"
+href="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/css/bgplay-ripestat.css"
+      type="text/css">
   </head>
   <body>
-    <text unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,353.7991,14.3744)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">2497</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,344.7986,-19.4465)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,344.7986,-19.4465)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">2516</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,598.1255,-92.5065)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,598.1255,-92.5065)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">2828</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,518.9218,294.6596)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,518.9218,294.6596)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">3257</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,559.54,-143.1342)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,559.54,-143.1342)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">3333</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,434.9261,-11.1407)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,434.9261,-11.1407)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">3356</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,253.1638,200.3163)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,253.1638,200.3163)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">3549</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,803.894,-51.2023)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,803.894,-51.2023)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">4608</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,673.7733,-77.0976)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,673.7733,-77.0976)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">4637</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,240.7353,-47.8146)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,240.7353,-47.8146)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">4777</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,554.3392,245.6943)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,554.3392,245.6943)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">6453</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,386.3039,267.3008)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,386.3039,267.3008)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">6461</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,633.2612,127.3139)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,633.2612,127.3139)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">6762</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,546.7249,-353.8249)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,546.7249,-353.8249)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">6881</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,345.3645,289.4016)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,345.3645,289.4016)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">6939</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,627.8677,281.5709)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,627.8677,281.5709)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">7018</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,522.3225,109.8506)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,522.3225,109.8506)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">7473</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,448.1916,326.6977)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,448.1916,326.6977)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">7575</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,326.6723,129.3681)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,326.6723,129.3681)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">7843</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,451.622,-49.4716)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,451.622,-49.4716)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">8419</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,230.6915,276.0412)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,230.6915,276.0412)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">8468</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,643.8014,-138.2893)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,643.8014,-138.2893)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">8607</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,646.8469,244.9472)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,646.8469,244.9472)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">8758</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,659.0173,149.4377)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,659.0173,149.4377)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">9002</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,290.4846,240.5581)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,290.4846,240.5581)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">9304</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,228.547,165.9749)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#ff0000" fill="#ff0000" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,228.547,165.9749)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#ffffff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">11427</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,532.7107,-103.3366)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,532.7107,-103.3366)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">13030</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,528.5039,11.9929)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,528.5039,11.9929)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">14361</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,490.1659,80.4812)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,490.1659,80.4812)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">19151</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,576.8941,307.6137)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,576.8941,307.6137)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">22652</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,382.3525,328.1501)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,382.3525,328.1501)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">25152</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,164.3967,-335.0935)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,164.3967,-335.0935)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">25160</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,506.8774,-302.3167)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,506.8774,-302.3167)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">25512</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,456.2569,74.5614)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,456.2569,74.5614)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">29608</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,353.6683,-94.0523)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,353.6683,-94.0523)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">29611</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,153.4169,-399.2447)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,153.4169,-399.2447)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">29636</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,198.7124,-447.815)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,198.7124,-447.815)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">39202</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,288.0758,-350.388)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,288.0758,-350.388)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">48039</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,526.1,49.2459)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,526.1,49.2459)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">50300</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,302.5687,-413.6869)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,302.5687,-413.6869)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">50304</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,557.6388,-250.5708)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,557.6388,-250.5708)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">51945</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,618.933,-276.175)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,618.933,-276.175)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">56730</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,371.5146,-437.934)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,371.5146,-437.934)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">57381</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,352.0275,-357.2427)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#0000ff" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,352.0275,-357.2427)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">57821</tspan></text><rect
-      unselectable="on" opacity="0.15"
-      transform="matrix(1,0,0,1,390.6916,-173.4768)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 0.15;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="0.15"
-      transform="matrix(1,0,0,1,390.6916,-173.4768)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 0.15; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">132132</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,393.0521,120.9258)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,393.0521,120.9258)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">6830</tspan></text><rect
-      unselectable="on" opacity="0.8"
-      transform="matrix(1,0,0,1,888.586,5.3299)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 0.8;
-      -moz-user-select: none;" stroke="#0000ff" fill="#e3f8fa" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,888.586,5.3299)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">2914</tspan></text><rect
-      unselectable="on" opacity="0.8"
-      transform="matrix(1,0,0,1,794.7575,165.5095)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 0.8;
-      -moz-user-select: none;" stroke="#0000ff" fill="#e3f8fa" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,794.7575,165.5095)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#0000ff" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">37989</tspan></text><rect
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,674.1721,203.6416)"
-      stroke-width="2.1554722222222225" text-anchor="middle"
-      style="text-anchor: middle; cursor: pointer; opacity: 1;
-      -moz-user-select: none;" stroke="#000000" fill="#ffffff" ry="10"
-      rx="10" r="10" height="25" width="35" y="-12.5" x="-17.5"></rect><text
-      unselectable="on" opacity="1"
-      transform="matrix(1,0,0,1,674.1721,203.6416)"
-      stroke-width="2.1554722222222225" font-weight="bold"
-      font-size="11px" font-family="Arial" fill="#000000" stroke="none"
-      font="10px &quot;Arial&quot;" text-anchor="middle" y="0" x="0"
-      style="text-anchor: middle; font: bold 11px Arial; cursor:
-      pointer; opacity: 1; -moz-user-select: none;"><tspan
-        style="-moz-user-select: none;" unselectable="on" dy="3.5">4844</tspan></text>
-    <div class="bgplayControllerDiv" style=""><img
-        class="bgplayControlPanelDivFlagIco"
-src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/config.png"
-        alt="Open config" title="Open config">
-      <div class="bgplayControlAnimationDiv">
-        <div class="bgplayControlAnimationPrev"> <img
-src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/play_prev.png"
-            alt="Previous event" title="Previous event"> </div>
-        <div class="bgplayControlAnimationStartPause"> <img
-            style="display: none;" class="bgplayControlAnimationPause"
-src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/pause.png"
-            alt="Pause animation" title="Pause animation"> <img
-            style="display: inline;" class="bgplayControlAnimationStart"
-src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/play.png"
-            alt="Play animation" title="Play animation or press
-            shift/ctrl to repeat the last event"> </div>
-        <div style="display: none;" class="bgplayControlAnimationStop">
-          <img
-src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/stop.png"
-            alt="Stop animation" title="Stop animation"> </div>
-        <div class="bgplayControlAnimationNext"> <img
-src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/play_next.png"
-            alt="Next event" title="Next event"> </div>
-      </div>
-      <div class="bgplayControlPanelDivComplete">
-        <div> <label for="bgplayStarttimestampPicker">Start date: </label>
-          <input id="dp1425132411885" class="bgplayStarttimestampPicker
-            hasDatepicker" type="text"> </div>
-        <div> <label for="bgplayEndtimestampPicker">End date: </label>
-          <input id="dp1425132411886" class="bgplayEndtimestampPicker
-            hasDatepicker" type="text"> </div>
-        <div class="bgplayControlRRCDiv"> <label style="float:left;
-            clear:both; width:100%;">Route Collectors: </label>
-          <div class="bgplayRrcsSelect"> <label>0</label><input
-              name="bgplayRrcSelect" value="0" checked="checked"
-              type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>1</label><input
-              name="bgplayRrcSelect" value="1" checked="checked"
-              type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>6</label><input
-              name="bgplayRrcSelect" value="6" checked="checked"
-              type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>7</label><input
-              name="bgplayRrcSelect" value="7" checked="checked"
-              type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>11</label><input
-              name="bgplayRrcSelect" value="11" checked="checked"
-              type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>14</label><input
-              name="bgplayRrcSelect" value="14" checked="checked"
-              type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>3</label><input
-              name="bgplayRrcSelect" value="3" type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>4</label><input
-              name="bgplayRrcSelect" value="4" type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>5</label><input
-              name="bgplayRrcSelect" value="5" type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>10</label><input
-              name="bgplayRrcSelect" value="10" type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>12</label><input
-              name="bgplayRrcSelect" value="12" type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>13</label><input
-              name="bgplayRrcSelect" value="13" type="checkbox"> </div>
-          <div class="bgplayRrcsSelect"> <label>15</label><input
-              name="bgplayRrcSelect" value="15" type="checkbox"> </div>
-        </div>
-        <div class="bgplaySuppressReannounceDiv"> <label
-            for="bgplaySuppressReannounce">Ignore re-announcements</label><input
-            class="bgplaySuppressReannounce" checked="checked"
-            type="checkbox"> </div>
-        <input class="bgplayControlApplyButton" type="button"> <input
-          class="bgplayControlDiscardButton" type="button"></div>
-    </div>
-    <div class="bgplayTimelineDiv" style="">
-      <div>
-        <div class="bgplayTimelineControlDiv" style="width:631px;">
-          <div style="">
-            <div class="bgplayTimelineControlCanvasText">Period: 2 days
-              0 seconds [9 events]</div>
-            <div class="bgplayTimelineControlCanvasDate">Current
-              instant: 2015-02-26 13:15:00</div>
+    &lt;head&gt; &lt;meta http-equiv="content-type" content="text/html;
+    charset=UTF-8"&gt; &lt;title&gt;&lt;/title&gt;
+    <title></title>
+    <div id="blah">
+      <script src="https://stat.ripe.net/widget-api-config?nocache=0.9008222081817026"></script>
+      <script src="https://stat.ripe.net/widgets/js/version.js?nocache=0.8053023251768069"></script>
+      <script src="https://stat.ripe.net/widgets/js/widget_api_main.js?nocache=0.4682316971217446"></script>
+      <script src="https://stat.ripe.net/widgets/lib/js/require-2.1.16-min.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets//lib/js/jquery/jquery-1.11.2.min.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets//lib/js/jquery/jquery-migrate-1.2.1.min.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/lib/jquery-ui/1.10.4/js/jquery-ui-1.10.4.custom.min.js?widget_api=2332-675e57901b94"></script>
+      <link type="text/css" rel="stylesheet"
+href="https://stat.ripe.net/widgets/lib/jquery-ui/1.10.4/css/jquery-ui-1.10.4.custom.min.css?widget_api=2332-675e57901b94">
+      <script src="https://stat.ripe.net/widgets/lib/jquery-ui/1.10.4/js/jquery-ui-bootstrap-bridge.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/lib/bootstrap/3.3.2/js/bootstrap.min.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/lib/js/moment/moment.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/lib/js/date.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/lib/js/jquery/jquery.cookie.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/lib/datatables/1.9.3/js/jquery.dataTables.min.js?widget_api=2332-675e57901b94"></script>
+      <link type="text/css" rel="stylesheet"
+href="https://stat.ripe.net/widgets/lib/datatables/1.10.5/css/jquery.dataTables.min.css?widget_api=2332-675e57901b94">
+      <script src="https://stat.ripe.net/widgets/js/jquery.ba-bbq.min.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/js/hash-state.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/lib/js/json2.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/js/misc_jquery.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/js/widget_api_class.js?widget_api=2332-675e57901b94"></script>
+      <script src="https://stat.ripe.net/widgets/js/widget_specs.js?widget_api=2332-675e57901b94"></script>
+      <link type="text/css" rel="stylesheet"
+href="https://stat.ripe.net/widgets/widgets/widgets-main.css?widget_api=2332-675e57901b94">
+      <link type="text/css" rel="stylesheet"
+href="https://stat.ripe.net/widgets/lib/font-awesome/4.3.0/css/font-awesome.min.css?widget_api=2332-675e57901b94">
+      <div style="position: relative; width: 640px;" class="stat-widget
+        full-box stat-theme" id="testarea"><a style="position: absolute;
+          top: 9px; left: 7px;" href="https://stat.ripe.net/"><img
+            src="https://stat.ripe.net/widgets/lib/img/logo-small.png"
+            class="widget-ripestat-logo" title="RIPEStat" alt="logo"></a>
+        <div class="box-content">
+          <div style="position: absolute; top: 4px; right: 4px;"><img
+              style="width: 25.6px; height: 25.6px; margin: 1.28px;
+              cursor: pointer; display: none;" class="hide-by-default
+              widget-drag-icon"
+              src="https://stat.ripe.net/widgets/lib/img/drag-icon.png"
+              title="Drag this widget to add it to a custom view"><img
+              style="display: inline-block; width: 25.6px; height:
+              25.6px; margin: 1.28px; cursor: pointer;"
+              src="https://stat.ripe.net/widgets/lib/img/feedback-icon.png"
+              title="Tell us what you think about this RIPEstat widget"><img
+              style="width: 25.6px; height: 25.6px; margin: 1.28px;
+              cursor: pointer; display: inline-block;" title="Maximize
+              view to full-window"
+              src="https://stat.ripe.net/widgets/lib/img/fullscreen-icon.png"></div>
+          <h2 class="widget-drag-icon"><a
+              href="https://stat.ripe.net/widget/bgplay#w.resource=72.176.0.0%2F13"
+              class="widget-title"><span>BGPlay<span
+                  class="title-resource"> (72.176.0.0/13)</span></span></a></h2>
+          <div class="controls-container">
+            <div class="controls-menu"> <button title="Toggle
+                multi-resource mode on/off" aria-disabled="false"
+                role="button" class="multi-resource-switch menu-button
+                hide-away ui-button ui-widget ui-state-default
+                ui-corner-all ui-button-text-icon-primary"><span
+                  class="ui-button-icon-primary ui-icon
+                  ui-icon-radio-off"></span><span class="ui-button-text">multi-resource</span></button></div>
+            <div class="single-resource-controls">
+              <form>
+                <fieldset style="border: none"> <input style="color:
+                    grey;" value="Reload this widget by entering a
+                    resource here" class="widget-resource-input"
+                    type="text"><button style="background:
+                    url(&quot;https://stat.ripe.net/widgets/lib/img/search_button.png?v=1&quot;)
+                    repeat scroll 0px 0px transparent;"
+                    class="controls-submit" type="submit"></button> </fieldset>
+              </form>
+            </div>
           </div>
-          <canvas class="bgplayTimelineControlCanvas" width="631"
-            height="50">Your browser doesn't support HTML5 Canvas.</canvas>
+          <div class="inner-div">
+            <div class="bgplayjs">
+              <div class="bgplayInfoDiv" style="">
+                <div style="text-align: center;" class="bgplayTitle">I<br>
+                  n<br>
+                  f<br>
+                  o<br>
+                </div>
+                <div><b>Type:</b> Initial state</div>
+                <div><b>Number of ASes:</b> 55</div>
+                <div><b>Number of collector peers:</b> 39</div>
+                <div><b>Selected RRCs:</b> 0,1,6,7,11,14</div>
+                <div><b>Total number of events:</b> 9</div>
+                <div><b>Date and time:</b> 2015-02-26 13:15:00</div>
+                <!--<div class="more">more</div>--></div>
+              <div class="bgplayLegendDiv" style="">
+                <div>
+                  <div class="bgplayLegendItem">
+                    <div
+                      style="color:white;background:red;width:100px;height:15px;border:1px
+                      solid red; border-radius: 15px;"> Origin AS </div>
+                  </div>
+                  <div class="bgplayLegendItem">
+                    <div
+                      style="color:blue;background:white;width:100px;height:15px;border:1px
+                      solid blue; border-radius: 15px;"> Collector peer
+                    </div>
+                  </div>
+                  <div class="bgplayLegendItem">
+                    <div
+                      style="color:black;background:white;width:100px;height:15px;border:1px
+                      solid black; border-radius: 15px;"> Other </div>
+                  </div>
+                  <div class="bgplayLegendItem">
+                    <div style="width:100px;height:15px;border-top:2px
+                      solid #000000; margin-top:2px;"> Dynamic path </div>
+                  </div>
+                  <div class="bgplayLegendItem">
+                    <div style="width:100px;height:15px;border-top:2px
+                      dashed #000000;margin-top:2px;"> Static path </div>
+                  </div>
+                </div>
+              </div>
+              <div style="height: 360px;" class="bgplayCenterDiv">
+                <!--<div class="bgplayScreenshot"></div>    <div class="bgplayFullscreen"></div>-->
+                <div class="bgplayGraphDiv" style="">
+                  <div style="-moz-user-select: none;"
+                    class="bgplayNodeContainer unselectable"
+                    unselectable="on"><svg unselectable="on"
+                      preserveAspectRatio="xMinYMin"
+                      viewBox="-125.95082638944255 -452.12836722069534
+                      1338.54 775.97" style="overflow: hidden; position:
+                      relative; top: -0.333344px; -moz-user-select:
+                      none;" xmlns="http://www.w3.org/2000/svg"
+                      width="621" version="1.1" height="360"><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M554.3391525271217,245.69425584629224L633.2611832994683,127.31394584084235M554.3391525271217,245.69425584629224L326.67228561842495,129.36806595688648M323.03133947608706,119.6084319661551L224.90606310855512,156.2152193513682"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M213.3072244855115,125.34537562665686L326.67228561842495,129.36806595688648"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M264.524323775492,52.55236269625053L353.7991001686552,14.37438274730766M264.524323775492,52.55236269625053L326.67228561842495,129.36806595688648M324.4877179330222,123.51228556244764L226.36244156549026,160.11907294766078"
+                        stroke="#ffcc00" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M386.30392279934404,267.30079068163616L448.19156232160816,326.6976514335919M386.30392279934404,267.30079068163616L326.67228561842495,129.36806595688648"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M434.92610436103325,-11.140742067019097L490.1659332512394,80.48120782184692M429.9751027814697,-14.955199218326339L321.72128403886137,125.55360880557924"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M598.125474208533,-92.50645474860465L888.5859634995599,5.329919123804055M594.1701256078612,-97.34564036678093L322.7169370177532,124.52888033871021"
+                        stroke="#ffcc00" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M434.92610436103325,-11.140742067019097L528.5038816714149,11.992885360562783"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M353.7991001686552,14.37438274730766L554.3391525271217,245.69425584629224"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M554.3391525271217,245.69425584629224L659.0173477829119,149.43772246352128"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337" d="M0,0"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M598.125474208533,-92.50645474860465L532.71074859511,-103.33658439671434M602.0808228092047,-87.66726913042838L330.6276342190967,134.20725157506277"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337" d="M0,0"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="0"
+                        stroke-width="3.2332083333333337"
+d="M345.36449821367995,289.40158246999135L382.352518164691,328.1500502224891M345.36449821367995,289.40158246999135L326.67228561842495,129.36806595688648M325.9440963899574,127.41613915874021L227.8188200224254,164.02292654395333"
+                        stroke="#53a674" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="0"
+                        stroke-width="3.2332083333333337"
+d="M434.92610436103325,-11.140742067019097L353.66828725958277,-94.05234796778512M439.87710594059683,-7.326284915711856L331.62328719798853,133.18252310819372M327.4004748468925,131.31999275503276L229.27519847936057,167.92678014024588"
+                        stroke="#4d5e66" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M557.6388065834229,-250.57075029293205L618.9329654100609,-276.1749648260337M489.7481909363489,-236.77997857863707L557.6388065834229,-250.57075029293205M489.7481909363489,-236.77997857863707L326.67228561842495,129.36806595688648"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M225.3858937243875,-379.1770248258658L164.39673830537055,-335.0935448321118M225.3858937243875,-379.1770248258658L326.67228561842495,129.36806595688648"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M225.3858937243875,-379.1770248258658L198.7123774269109,-447.8149513134802"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M222.0825857761114,77.53277555596219L326.67228561842495,129.36806595688648"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337" d="M0,0"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M253.1637933309391,200.31628973354321L230.69154354089304,276.0412375169775M253.1637933309391,200.31628973354321L326.67228561842495,129.36806595688648"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M888.5859634995599,5.329919123804055L554.3391525271217,245.69425584629224"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M225.3858937243875,-379.1770248258658L153.41687480179112,-399.2446513982967"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M434.92610436103325,-11.140742067019097L451.6220351163907,-49.47162762077346"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M598.125474208533,-92.50645474860465L643.8013760039494,-138.28931356184444"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M434.92610436103325,-11.140742067019097L456.2569122025741,74.56139358733876"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M554.3391525271217,245.69425584629224L576.8941069584275,307.61369947409213"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="0"
+                        stroke-width="3.2332083333333337"
+d="M326.67228561842495,129.36806595688648L290.4846131904575,240.5581136823952M328.8568533038277,135.2238463513253L230.7315769362957,171.83063373653843"
+                        stroke="#cc00ff" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M518.9218317040284,294.659609354364L554.3391525271217,245.69425584629224"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M393.0521346384039,120.92575873784189L646.846928317449,244.94716484756012M393.0521346384039,120.92575873784189L326.67228561842495,129.36806595688648"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337" d="M0,0"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="0"
+                        stroke-width="3.2332083333333337"
+d="M674.1721433985159,203.64162985650972L794.757532438003,165.5095092479916M674.1721433985159,203.64162985650972L522.3225478572097,109.85059812808258M522.3225478572097,109.85059812808258L326.67228561842495,129.36806595688648M330.31323176076285,139.12769994761788L232.18795539323085,175.734487332831"
+                        stroke="#ff8091" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M743.0148126293611,-66.16931917877714L803.8939721633288,-51.20229743350655M743.0148126293611,-66.16931917877714L673.7733135207669,-77.09756696755669M598.125474208533,-92.50645474860465L673.7733135207669,-77.09756696755669"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M344.79860424423595,-19.44648875358949L240.73528386356645,-47.81464727598356M344.79860424423595,-19.44648875358949L326.67228561842495,129.36806595688648"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M546.7248879899049,-353.8248533420909L506.8774429772336,-302.3167445329342M489.7481909363489,-236.77997857863707L506.8774429772336,-302.3167445329342"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M288.0758490667243,-350.38798279281986L352.0275306738119,-357.24273363952665M225.3858937243875,-379.1770248258658L288.0758490667243,-350.38798279281986"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M302.56867507470434,-413.6868643612771L371.51464365132824,-437.9339532057088M225.3858937243875,-379.1770248258658L302.56867507470434,-413.6868643612771"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M598.125474208533,-92.50645474860465L559.5400116593471,-143.13416614423687"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M434.92610436103325,-11.140742067019097L526.0999516546696,49.24587300465238"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><path
+                        opacity="1" unselectable="on"
+                        stroke-dasharray="6,4.5"
+                        stroke-width="3.2332083333333337"
+d="M554.3391525271217,245.69425584629224L627.8677139327925,281.5708579201389"
+                        stroke="#ff0000" fill="none" style="cursor:
+                        pointer; -moz-user-select: none; opacity: 1;"></path><desc
+                        style="-moz-user-select: none;"
+                        unselectable="on">Created with Raphaël 2.1.0</desc><defs
+                        style="-moz-user-select: none;"
+                        unselectable="on"></defs><rect unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,225.3859,-379.177)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,225.3859,-379.177)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">174</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,222.0826,77.5328)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,222.0826,77.5328)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">286</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,264.5243,52.5524)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,264.5243,52.5524)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">701</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,743.0148,-66.1693)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,743.0148,-66.1693)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">1221</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,213.3072,125.3454)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,213.3072,125.3454)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">1280</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,489.7482,-236.78)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,489.7482,-236.78)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">1299</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,353.7991,14.3744)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,353.7991,14.3744)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">2497</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,344.7986,-19.4465)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,344.7986,-19.4465)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">2516</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,598.1255,-92.5065)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,598.1255,-92.5065)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">2828</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,518.9218,294.6596)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,518.9218,294.6596)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">3257</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,559.54,-143.1342)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,559.54,-143.1342)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">3333</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,434.9261,-11.1407)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,434.9261,-11.1407)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">3356</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,253.1638,200.3163)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,253.1638,200.3163)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">3549</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,803.894,-51.2023)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,803.894,-51.2023)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">4608</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,673.7733,-77.0976)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,673.7733,-77.0976)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">4637</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,240.7353,-47.8146)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,240.7353,-47.8146)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">4777</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,554.3392,245.6943)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,554.3392,245.6943)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">6453</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,386.3039,267.3008)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,386.3039,267.3008)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">6461</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,633.2612,127.3139)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,633.2612,127.3139)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">6762</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,546.7249,-353.8249)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,546.7249,-353.8249)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">6881</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,345.3645,289.4016)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,345.3645,289.4016)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">6939</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,627.8677,281.5709)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,627.8677,281.5709)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">7018</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,522.3225,109.8506)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,522.3225,109.8506)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">7473</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,448.1916,326.6977)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,448.1916,326.6977)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">7575</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,451.622,-49.4716)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,451.622,-49.4716)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">8419</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,230.6915,276.0412)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,230.6915,276.0412)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">8468</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,643.8014,-138.2893)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,643.8014,-138.2893)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">8607</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,646.8469,244.9472)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,646.8469,244.9472)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">8758</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,659.0173,149.4377)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,659.0173,149.4377)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">9002</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,290.4846,240.5581)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,290.4846,240.5581)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">9304</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,228.547,165.9749)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#ff0000" fill="#ff0000" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,228.547,165.9749)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#ffffff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">11427</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,532.7107,-103.3366)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,532.7107,-103.3366)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">13030</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,528.5039,11.9929)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,528.5039,11.9929)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">14361</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,490.1659,80.4812)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,490.1659,80.4812)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">19151</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,576.8941,307.6137)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,576.8941,307.6137)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">22652</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,382.3525,328.1501)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,382.3525,328.1501)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">25152</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,164.3967,-335.0935)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,164.3967,-335.0935)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">25160</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,506.8774,-302.3167)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,506.8774,-302.3167)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">25512</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,456.2569,74.5614)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,456.2569,74.5614)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">29608</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,353.6683,-94.0523)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,353.6683,-94.0523)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">29611</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,153.4169,-399.2447)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,153.4169,-399.2447)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">29636</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,198.7124,-447.815)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,198.7124,-447.815)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">39202</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,288.0758,-350.388)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,288.0758,-350.388)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">48039</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,526.1,49.2459)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,526.1,49.2459)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">50300</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,302.5687,-413.6869)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,302.5687,-413.6869)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">50304</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,557.6388,-250.5708)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,557.6388,-250.5708)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">51945</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,618.933,-276.175)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,618.933,-276.175)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">56730</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,371.5146,-437.934)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,371.5146,-437.934)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">57381</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,352.0275,-357.2427)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,352.0275,-357.2427)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">57821</tspan></text><rect
+                        unselectable="on" opacity="0.15"
+                        transform="matrix(1,0,0,1,390.6916,-173.4768)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 0.15;
+                        -moz-user-select: none;" stroke="#000000"
+                        fill="#ffffff" ry="10" rx="10" r="10"
+                        height="25" width="35" y="-12.5" x="-17.5"></rect><text
+                        unselectable="on" opacity="0.15"
+                        transform="matrix(1,0,0,1,390.6916,-173.4768)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 0.15;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">132132</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,393.0521,120.9258)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,393.0521,120.9258)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">6830</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,888.586,5.3299)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#e3f8fa" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,888.586,5.3299)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">2914</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,794.7575,165.5095)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#0000ff" fill="#e3f8fa" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,794.7575,165.5095)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#0000ff" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">37989</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,326.6723,129.3681)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,326.6723,129.3681)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">7843</tspan></text><rect
+                        unselectable="on" opacity="1"
+                        transform="matrix(1,0,0,1,674.1721,203.6416)"
+                        stroke-width="2.1554722222222225"
+                        text-anchor="middle" style="text-anchor: middle;
+                        cursor: pointer; opacity: 1; -moz-user-select:
+                        none;" stroke="#000000" fill="#ffffff" ry="10"
+                        rx="10" r="10" height="25" width="35" y="-12.5"
+                        x="-17.5"></rect><text unselectable="on"
+                        opacity="1"
+                        transform="matrix(1,0,0,1,674.1721,203.6416)"
+                        stroke-width="2.1554722222222225"
+                        font-weight="bold" font-size="11px"
+                        font-family="Arial" fill="#000000" stroke="none"
+                        font="10px &quot;Arial&quot;"
+                        text-anchor="middle" y="0" x="0"
+                        style="text-anchor: middle; font: bold 11px
+                        Arial; cursor: pointer; opacity: 1;
+                        -moz-user-select: none;"><tspan
+                          style="-moz-user-select: none;"
+                          unselectable="on" dy="3.5">4844</tspan></text></svg></div>
+                </div>
+                <div class="bgplayControllerDiv" style=""><img
+                    class="bgplayControlPanelDivFlagIco"
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/config.png"
+                    alt="Open config" title="Open config">
+                  <div class="bgplayControlAnimationDiv">
+                    <div class="bgplayControlAnimationPrev"> <img
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/play_prev.png"
+                        alt="Previous event" title="Previous event"> </div>
+                    <div class="bgplayControlAnimationStartPause"> <img
+                        style="display: none;"
+                        class="bgplayControlAnimationPause"
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/pause.png"
+                        alt="Pause animation" title="Pause animation"> <img
+                        style="display: inline;"
+                        class="bgplayControlAnimationStart"
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/play.png"
+                        alt="Play animation" title="Play animation or
+                        press shift/ctrl to repeat the last event"> </div>
+                    <div style="display: none;"
+                      class="bgplayControlAnimationStop"> <img
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/stop.png"
+                        alt="Stop animation" title="Stop animation"> </div>
+                    <div class="bgplayControlAnimationNext"> <img
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/play_next.png"
+                        alt="Next event" title="Next event"> </div>
+                  </div>
+                  <div class="bgplayControlPanelDivComplete">
+                    <div> <label for="bgplayStarttimestampPicker">Start
+                        date: </label> <input id="dp1425132411885"
+                        class="bgplayStarttimestampPicker hasDatepicker"
+                        type="text"> </div>
+                    <div> <label for="bgplayEndtimestampPicker">End
+                        date: </label> <input id="dp1425132411886"
+                        class="bgplayEndtimestampPicker hasDatepicker"
+                        type="text"> </div>
+                    <div class="bgplayControlRRCDiv"> <label
+                        style="float:left; clear:both; width:100%;">Route
+                        Collectors: </label>
+                      <div class="bgplayRrcsSelect"> <label>0</label><input
+                          name="bgplayRrcSelect" value="0"
+                          checked="checked" type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>1</label><input
+                          name="bgplayRrcSelect" value="1"
+                          checked="checked" type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>6</label><input
+                          name="bgplayRrcSelect" value="6"
+                          checked="checked" type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>7</label><input
+                          name="bgplayRrcSelect" value="7"
+                          checked="checked" type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>11</label><input
+                          name="bgplayRrcSelect" value="11"
+                          checked="checked" type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>14</label><input
+                          name="bgplayRrcSelect" value="14"
+                          checked="checked" type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>3</label><input
+                          name="bgplayRrcSelect" value="3"
+                          type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>4</label><input
+                          name="bgplayRrcSelect" value="4"
+                          type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>5</label><input
+                          name="bgplayRrcSelect" value="5"
+                          type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>10</label><input
+                          name="bgplayRrcSelect" value="10"
+                          type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>12</label><input
+                          name="bgplayRrcSelect" value="12"
+                          type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>13</label><input
+                          name="bgplayRrcSelect" value="13"
+                          type="checkbox"> </div>
+                      <div class="bgplayRrcsSelect"> <label>15</label><input
+                          name="bgplayRrcSelect" value="15"
+                          type="checkbox"> </div>
+                    </div>
+                    <div class="bgplaySuppressReannounceDiv"> <label
+                        for="bgplaySuppressReannounce">Ignore
+                        re-announcements</label><input
+                        class="bgplaySuppressReannounce"
+                        checked="checked" type="checkbox"> </div>
+                    <input class="bgplayControlApplyButton"
+                      type="button"> <input
+                      class="bgplayControlDiscardButton" type="button"></div>
+                </div>
+              </div>
+              <div class="bgplayTimelineDiv" style="">
+                <div>
+                  <div class="bgplayTimelineControlDiv"
+                    style="width:631px;">
+                    <div style="">
+                      <div class="bgplayTimelineControlCanvasText">Period:
+                        2 days 0 seconds [9 events]</div>
+                      <div class="bgplayTimelineControlCanvasDate">Current
+                        instant: 2015-02-26 13:15:00</div>
+                    </div>
+                    <canvas class="bgplayTimelineControlCanvas"
+                      width="631" height="50">Your browser doesn't
+                      support HTML5 Canvas.</canvas> </div>
+                  <div style="width: 541px;"
+                    class="bgplayTimelineSelectionDiv"> <img
+                      style="display: none;"
+                      class="bgplayTimelineSelectionSliderLeft"
+                      alt="Next" title="Next"
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/miniarrow_left.gif">
+                    <img style="display: block;"
+                      class="bgplayTimelineSelectionSliderRight"
+                      alt="Prev" title="Prev"
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/miniarrow_right.gif">
+                    <img class="bgplayTimelineSelectionWaitIco"
+                      alt="wait" title="wait"
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/drawing.png">
+                    <img class="bgplayTimelineSelectionWarpIco"
+                      alt="warp" title="warp"
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/warp.gif">
+                    <canvas style="left: 0px; position: relative;"
+                      class="bgplayTimelineSelectionCanvas ui-draggable"
+                      width="751" height="60">Your browser doesn't
+                      support HTML5 Canvas.</canvas> </div>
+                  <img style="display: none;"
+                    class="bgplayTimelineSelectionNext" alt="Next"
+                    title="Next"
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/next.png">
+                  <img style="display: none;"
+                    class="bgplayTimelineSelectionPrev" alt="Prev"
+                    title="Prev"
+src="https://stat.ripe.net/widgets//js/bgplay/v1.1/modules/html/img/prev.png"></div>
+              </div>
+            </div>
+            <div class="query-meta-info">Showing results for <b><span
+                  class="meta-info-resource">72.176.0.0/13</span></b>
+              from <b class="meta-starttime">2015-02-26 13:15:00 UTC</b>
+              to <b class="meta-endtime">2015-02-28 13:15:00 UTC</b></div>
+          </div>
+        </div>
+        <div class="box-buttons">
+          <ul style="margin-left: 0px;" class="left">
+            <li><a class="button source-data"
+href="https://stat.ripe.net/data/bgplay/data.json?resource=72.176.0.0%2F13&amp;rrcs=0%2C1%2C6%2C7%2C11%2C14&amp;unix_timestamps=TRUE">source
+                data</a></li>
+            <li><a class="button" href="javascript:void(0);">layout</a></li>
+            <li><a class="button" href="javascript:void(0);">options</a></li>
+          </ul>
+          <ul class="right">
+            <li><a class="embed-code-link button" href="javascript:
+                void(0);">embed code</a></li>
+            <li><a class="permalink-popup-link button"
+                href="https://stat.ripe.net/widget/bgplay#w.resource=72.176.0.0%2F13">permalink</a></li>
+            <li><a class="info-popup-link button"
+                href="javascript:void(0);">info</a></li>
+          </ul>
+          <div style="display: none;" class="dataview popup">
+            <h3>Get the data behind this widget with the Data API</h3>
+            <p><a
+href="https://stat.ripe.net/data/bgplay/data.json?resource=72.176.0.0%2F13&amp;rrcs=0%2C1%2C6%2C7%2C11%2C14&amp;unix_timestamps=TRUE"
+                target="_blank">https://stat.ripe.net/data/bgplay/data.json?resource=72.176.0.0%2F13&amp;rrcs=0%2C1%2C6%2C7%2C11%2C14&amp;unix_timestamps=TRUE<span
+                  class="ui-icon ui-icon-extlink" style="display:
+                  inline-block"></span></a></p>
+          </div>
+          <div style="display: none;" class="embed_code popup">
+            <h3>Embed this widget on your page</h3>
+            <textarea readonly="readonly" rows="3" style="width:95%;
+              height: auto; resize: none;font-size: 90%; padding: 5px;">&lt;script
+              src="https://stat.ripe.net/widgets/widget_api.js"&gt;&lt;/script&gt;
+&lt;div
+class="statwdgtauto"&gt;&lt;script&gt;ripestat.init("bgplay",{"unix_timestamps":"TRUE","ignoreReannouncements":false,"rrcs":"0,1,6,7,11,14","resource":"72.176.0.0/13"},null,{"show_controls":"yes","disable":[]})&lt;/script&gt;&lt;/div&gt;</textarea>
+            <br>
+            Copy and paste this code into an HTML webpage. Note: <i>widget_api.js</i>
+            (the 1st line) only needs to be included once per page.<br>
+            <br>
+            For more usage details please view the RIPEstat Widget API <a
+              href="http://stat.ripe.net/docs/widget_api/">documentation</a>.</div>
+          <div style="display: none;" class="permalink popup">
+            <h3>Permalink</h3>
+            <input style="width:85%"
+              value="https://stat.ripe.net/widget/bgplay#w.resource=72.176.0.0%2F13"><a
+href="https://stat.ripe.net/widget/bgplay#w.resource=72.176.0.0%2F13">open</a></div>
+          <div style="display: none;" class="methodology popup">
+            <h3>Content Explanation</h3>
+          </div>
+          <div style="display: none;" class="json_nodes popup"><textarea
+              class="nodePosition"></textarea>
+            <div class="nodePositionButtons"> <input class="getsvg"
+                value="Get SVG" style="width:80px;" type="button"> <input
+                class="apply" value="Apply" style="width:80px;"
+                type="button"></div>
+          </div>
+          <div style="display: none;" class="popup">
+            <div class="bgplayOptionsPopup">
+              <div style="border:1px solid #C0C0C0; padding: 0px 5px 5px
+                10px;margin-bottom:5px;"> <label
+                  for="restorePositionButton">Restore graph:</label> <input
+                  class="restorePositionButton" value="restore"
+                  style="width:80px;" type="button"></div>
+              <div style="border:1px solid #C0C0C0; padding: 0px 5px 5px
+                10px;margin-bottom:5px;"> <label for="optionLinkWeight">Only
+                  show AS links if seen by # RIS peers:</label> <input
+                  class="optionLinkWeightValue" value="1" style="border:
+                  0; color: #f6931f; background: transparent; width:
+                  30px;" type="text"> </div>
+              <div style="border: 1px solid #C0C0C0; padding: 0px 5px
+                5px 10px; margin-bottom: 5px;"> <label
+                  for="optionGraphDeep">Hide AS if reached by paths
+                  longer than:</label> <input
+                  class="optionGraphDeepValue" value="1" style="border:
+                  0; color: #f6931f; background:transparent;
+                  width:30px;" type="text"> </div>
+              <div style="border:1px solid #C0C0C0; padding: 0px 5px 5px
+                10px;margin-bottom:5px;"> <label
+                  for="animationSpeedSlider">Animation speed:</label> <input
+                  class="animationSpeedSliderValue" value="1"
+                  style="border: 0; color: #f6931f;
+                  background:transparent; width:15px;" type="text"> </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <script>
+
+alert( document.getElementById("blah").innerHTML.indexOf("Reload") );
+
+
+
+</script>
+    <div aria-labelledby="ui-id-2" aria-describedby="ui-id-1"
+      role="dialog" tabindex="-1" style="display: none;"
+      class="ui-dialog ui-widget ui-widget-content ui-corner-all
+      ui-front ui-draggable">
+      <div class="ui-dialog-titlebar ui-widget-header ui-corner-all
+        ui-helper-clearfix"><span style="font-size: small;"
+          class="ui-dialog-title" id="ui-id-2">Tell us what you think
+          about this RIPEstat widget</span><button
+          class="ui-dialog-titlebar-close" type="button"></button></div>
+      <div class="ui-dialog-content ui-widget-content" style="display:
+        block;" id="ui-id-1" align="center">
+        <form style="margin-bottom: 0px;">
+          <fieldset style="position: relative; border: 1px solid
+            rgb(192, 192, 192); background-color: rgb(251, 251, 251);
+            border-radius: 4px; padding: 8px;" align="left"><legend>Usefulness?</legend><img
+              style="cursor: help; position: absolute; right: 3px; top:
+              11px;"
+              src="https://stat.ripe.net/widgets/lib/img/info_icon.gif">
+            <div style="font-size: 9px;" align="center"><span
+                style="cursor: pointer; width: 126px;"><img
+                  class="raty-cancel" title="cancel this score" alt="x"
+src="https://stat.ripe.net/widgets/lib/img/cancel-off.png">&nbsp;<img
+                  title="" alt="1"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="2"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="3"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="4"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="5"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png"><input
+                  name="score" type="hidden"></span><span style="float:
+                left; text-align: right; width: 119.7px; color: grey;">(useless)</span><span
+                style="float: right; text-align: left; width: 119.7px;
+                color: grey;">(highly useful)</span></div>
+          </fieldset>
+          <fieldset style="position: relative; border: 1px solid
+            rgb(192, 192, 192); background-color: rgb(251, 251, 251);
+            border-radius: 4px; padding: 8px;" align="left"><legend>Quality
+              of the data?</legend><img style="cursor: help; position:
+              absolute; right: 3px; top: 11px;"
+              src="https://stat.ripe.net/widgets/lib/img/info_icon.gif">
+            <div style="font-size: 9px;" align="center"><span
+                style="cursor: pointer; width: 126px;"><img
+                  class="raty-cancel" title="cancel this score" alt="x"
+src="https://stat.ripe.net/widgets/lib/img/cancel-off.png">&nbsp;<img
+                  title="" alt="1"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="2"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="3"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="4"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="5"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png"><input
+                  name="score" type="hidden"></span><span style="float:
+                left; text-align: right; width: 119.7px; color: grey;">(incorrect
+                data)</span><span style="float: right; text-align: left;
+                width: 119.7px; color: grey;">(completely accurate)</span></div>
+          </fieldset>
+          <fieldset style="position: relative; border: 1px solid
+            rgb(192, 192, 192); background-color: rgb(251, 251, 251);
+            border-radius: 4px; padding: 8px;" align="left"><legend>Clarity?</legend><img
+              style="cursor: help; position: absolute; right: 3px; top:
+              11px;"
+              src="https://stat.ripe.net/widgets/lib/img/info_icon.gif">
+            <div style="font-size: 9px;" align="center"><span
+                style="cursor: pointer; width: 126px;"><img
+                  class="raty-cancel" title="cancel this score" alt="x"
+src="https://stat.ripe.net/widgets/lib/img/cancel-off.png">&nbsp;<img
+                  title="" alt="1"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="2"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="3"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="4"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="5"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png"><input
+                  name="score" type="hidden"></span><span style="float:
+                left; text-align: right; width: 119.7px; color: grey;">(makes
+                no sense)</span><span style="float: right; text-align:
+                left; width: 119.7px; color: grey;">(I understand
+                perfectly)</span></div>
+          </fieldset>
+          <fieldset style="position: relative; border: 1px solid
+            rgb(192, 192, 192); background-color: rgb(251, 251, 251);
+            border-radius: 4px; padding: 8px;" align="left"><legend>Presentation
+              &amp; Interactivity?</legend><img style="cursor: help;
+              position: absolute; right: 3px; top: 11px;"
+              src="https://stat.ripe.net/widgets/lib/img/info_icon.gif">
+            <div style="font-size: 9px;" align="center"><span
+                style="cursor: pointer; width: 126px;"><img
+                  class="raty-cancel" title="cancel this score" alt="x"
+src="https://stat.ripe.net/widgets/lib/img/cancel-off.png">&nbsp;<img
+                  title="" alt="1"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="2"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="3"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="4"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png">&nbsp;<img
+                  title="" alt="5"
+                  src="https://stat.ripe.net/widgets/lib/img/star-off.png"><input
+                  name="score" type="hidden"></span><span style="float:
+                left; text-align: right; width: 119.7px; color: grey;">(poor
+                representation)</span><span style="float: right;
+                text-align: left; width: 119.7px; color: grey;">(has
+                everything it needs)</span></div>
+          </fieldset>
+          <br>
+          <textarea class="initial" style="width: 75%; resize: none;
+            font-size: x-small; color: grey;" rows="4"></textarea><br>
+          <input class="initial" style="width: 75%; resize: none;
+            font-size: x-small; color: grey;"><br>
+          <br>
+          <button aria-disabled="false" role="button" class="ui-button
+            ui-widget ui-state-default ui-corner-all
+            ui-button-text-only"><span class="ui-button-text">submit</span></button><button
+            aria-disabled="false" role="button" class="ui-button
+            ui-widget ui-state-default ui-corner-all
+            ui-button-text-only"><span class="ui-button-text">cancel</span></button></form>
+      </div>
+    </div>
+    <div id="ui-datepicker-div" class="ui-datepicker ui-widget
+      ui-widget-content ui-helper-clearfix ui-corner-all">
+      <div class="ui-datepicker-header ui-widget-header
+        ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev
+          ui-corner-all" data-handler="prev" data-event="click"
+          title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a>
+        <div class="ui-datepicker-title">
+          <select class="ui-datepicker-month" data-handler="selectMonth"
+            data-event="change">
+            <option value="0">Jan</option>
+            <option value="1" selected="selected">Feb</option>
+          </select>
+          <select class="ui-datepicker-year" data-handler="selectYear"
+            data-event="change">
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015" selected="selected">2015</option>
+          </select>
+        </div>
+      </div>
+      <table class="ui-datepicker-calendar">
+        <thead><tr>
+            <th class="ui-datepicker-week-end"><span title="Sunday">Su</span></th>
+            <th><span title="Monday">Mo</span></th>
+            <th><span title="Tuesday">Tu</span></th>
+            <th><span title="Wednesday">We</span></th>
+            <th><span title="Thursday">Th</span></th>
+            <th><span title="Friday">Fr</span></th>
+            <th class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th>
+          </tr>
+        </thead><tbody>
+          <tr>
+            <td class=" ui-datepicker-week-end "
+              data-handler="selectDay" data-event="click" data-month="1"
+              data-year="2015"><a class="ui-state-default" href="#">1</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">2</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">3</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">4</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">5</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">6</a></td>
+            <td class=" ui-datepicker-week-end "
+              data-handler="selectDay" data-event="click" data-month="1"
+              data-year="2015"><a class="ui-state-default" href="#">7</a></td>
+          </tr>
+          <tr>
+            <td class=" ui-datepicker-week-end "
+              data-handler="selectDay" data-event="click" data-month="1"
+              data-year="2015"><a class="ui-state-default" href="#">8</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">9</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">10</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">11</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">12</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">13</a></td>
+            <td class=" ui-datepicker-week-end "
+              data-handler="selectDay" data-event="click" data-month="1"
+              data-year="2015"><a class="ui-state-default" href="#">14</a></td>
+          </tr>
+          <tr>
+            <td class=" ui-datepicker-week-end "
+              data-handler="selectDay" data-event="click" data-month="1"
+              data-year="2015"><a class="ui-state-default" href="#">15</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">16</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">17</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">18</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">19</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">20</a></td>
+            <td class=" ui-datepicker-week-end "
+              data-handler="selectDay" data-event="click" data-month="1"
+              data-year="2015"><a class="ui-state-default" href="#">21</a></td>
+          </tr>
+          <tr>
+            <td class=" ui-datepicker-week-end "
+              data-handler="selectDay" data-event="click" data-month="1"
+              data-year="2015"><a class="ui-state-default" href="#">22</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">23</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">24</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">25</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">26</a></td>
+            <td class=" " data-handler="selectDay" data-event="click"
+              data-month="1" data-year="2015"><a
+                class="ui-state-default" href="#">27</a></td>
+            <td class=" ui-datepicker-week-end
+              ui-datepicker-days-cell-over ui-datepicker-current-day
+              ui-datepicker-today" data-handler="selectDay"
+              data-event="click" data-month="1" data-year="2015"><a
+                class="ui-state-default ui-state-highlight
+                ui-state-active ui-state-hover" href="#">28</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ui-timepicker-div">
+        <dl>
+          <dt class="ui_tpicker_time_label">Time</dt>
+          <dd class="ui_tpicker_time">13:15:00</dd>
+          <dt class="ui_tpicker_hour_label">Hour</dt>
+          <dd class="ui_tpicker_hour"><br>
+          </dd>
+          <dt class="ui_tpicker_minute_label">Minute</dt>
+          <dd class="ui_tpicker_minute"><br>
+          </dd>
+          <dt class="ui_tpicker_second_label">Second</dt>
+          <dd class="ui_tpicker_second"><br>
+          </dd>
+          <dt class="ui_tpicker_millisec_label" style="display:none;">Millisecond</dt>
+          <dd class="ui_tpicker_millisec"><br>
+          </dd>
+          <dt class="ui_tpicker_timezone_label" style="display:none;">Time
+            Zone</dt>
+          <dd class="ui_tpicker_timezone" style="display:none;">
+            <select>
+              <option value="-1200">-1200</option>
+              <option value="-1100">-1100</option>
+              <option value="-1000">-1000</option>
+              <option value="-0930">-0930</option>
+              <option value="-0900">-0900</option>
+              <option value="-0800">-0800</option>
+              <option value="-0700">-0700</option>
+              <option value="-0600">-0600</option>
+              <option value="-0500">-0500</option>
+              <option value="-0430">-0430</option>
+              <option value="-0400">-0400</option>
+              <option value="-0330">-0330</option>
+              <option value="-0300">-0300</option>
+              <option value="-0200">-0200</option>
+              <option value="-0100">-0100</option>
+              <option value="+0000">+0000</option>
+              <option value="+0100">+0100</option>
+              <option value="+0200">+0200</option>
+              <option value="+0300">+0300</option>
+              <option value="+0330">+0330</option>
+              <option value="+0400">+0400</option>
+              <option value="+0430">+0430</option>
+              <option value="+0500">+0500</option>
+              <option value="+0530">+0530</option>
+              <option value="+0545">+0545</option>
+              <option value="+0600">+0600</option>
+              <option value="+0630">+0630</option>
+              <option value="+0700">+0700</option>
+              <option value="+0800">+0800</option>
+              <option value="+0845">+0845</option>
+              <option value="+0900">+0900</option>
+              <option value="+0930">+0930</option>
+              <option value="+1000">+1000</option>
+              <option value="+1030">+1030</option>
+              <option value="+1100">+1100</option>
+              <option value="+1130">+1130</option>
+              <option value="+1200">+1200</option>
+              <option value="+1245">+1245</option>
+              <option value="+1300">+1300</option>
+              <option value="+1400">+1400</option>
+            </select>
+          </dd>
+        </dl>
+      </div>
+      <div class="ui-datepicker-buttonpane ui-widget-content"><button
+          type="button" class="ui-datepicker-current ui-state-default
+          ui-priority-secondary ui-corner-all" data-handler="today"
+          data-event="click">Now</button><button type="button"
+          class="ui-datepicker-close ui-state-default
+          ui-priority-primary ui-corner-all" data-handler="hide"
+          data-event="click">Done</button></div>
     </div>
   </body>
 </html>
