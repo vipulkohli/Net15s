@@ -19,7 +19,7 @@ public class DataSplitter extends Thread{
                 	FileWriter fw = new FileWriter(filename);
 					fw.write( list.toString()  );
 					fw.close();
-					break;
+					list.clear();
                 }
             }
             scanner.close();
