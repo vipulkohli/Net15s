@@ -26,7 +26,7 @@ public class Tracer extends Thread{
 				if(str.contains("Query limit is <b>0/20")){
 					System.out.println( "0 Query limit");
 					repeat--;
-					if( ++k > 30 )
+					if( ++k > 10)
 						break;
 					nap();
 					continue;
@@ -38,7 +38,7 @@ public class Tracer extends Thread{
 	
 	private void nap(){
 		try{
-					Thread.sleep(1000);
+					Thread.sleep(10000);
 		}
 		catch(Exception e){
 		}
@@ -51,7 +51,7 @@ public class Tracer extends Thread{
 	
 	public static void runList( String [] list ) throws Exception{
 		System.out.println(list[0].length());
-		for(int k = 1635; k < list.length; k++){
+		for(int k = 3231; k < list.length; k++){
 			for(int nation = 1; nation <= 12; nation += 6)
 				try{ 
 					System.out.println("Index: " + k);
@@ -78,6 +78,7 @@ public class Tracer extends Thread{
 	
 	public void process(String str) throws Exception{
 		try{
+			System.out.println("Feedback length: " + str.length() );
 			String hop = "<p>Traceroute to";
 			String endl = "<p>Multi-location";
 			int start = str.indexOf(" Query limit is");
@@ -89,7 +90,7 @@ public class Tracer extends Thread{
 				str = str.substring( start, stop );
 				System.out.println( " Printed ok ");
 				System.out.println(str.substring(0, str.indexOf("ms")) );
-				toFile( str , "data.html", true );
+				toFile( str , "data2.html", true );
 			}
 			else{
 				System.out.println("Keywords not found");
@@ -106,7 +107,7 @@ public class Tracer extends Thread{
 	
 	
 	public static String sendPost(String www, int id) throws Exception {
- 
+
 		String url = "https://www.ip2location.com/free/traceroute";
 		URL obj = new URL(url);
 		HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
