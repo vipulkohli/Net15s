@@ -1,0 +1,106 @@
+
+
+%
+% This file is an example file demonstrating how to use the sigcomm-alternate class for papers
+% submitted in partial fulfillment for assignments in the Computer Networking and Distributed Systems
+% classes, CSE 4344 and CSE 5344/7344, at Southern Methodist University. The sigcomm-alternate 
+% LaTeX class is used for submissions to CCR. It is a goal of at least CSE 5344/7344 that the students
+% will submit at least paper submitted for an assignment to CCR for publication; therefore, this example
+% file conforms to the CCR submission guidelines.
+%
+% Author: Daniel W. Engels
+% Creation Date: 17 January 2014
+% Version: 0.1
+%
+
+\documentclass{sigcomm-alternate}
+
+%---- The front matter contains packages being used, definitions, etc. including the title and author
+%---- information for this work.
+
+%---- Title
+% The title of this work. For course assignments, the title must include the course number. 
+\title{
+Title of Work
+}
+
+%---- Authors
+% The authors are placed all within a single LaTeX author box. This is a CCR guideline that is not true of
+% all ACM publications.
+\numberofauthors{4}
+
+\author{
+% Each author is identified by name, simple affiliation, and email address. The command \alignauthor (no
+% curly braces required) must precede each author name. The command \affaddr (curly braces required) 
+% must precede each line in the affiliation. The command \email{ } (curly braces required) must by used to 
+% identify the email address for each author. When more than three authors exist, a tabular environment will
+% need to be used to align the authors across multiple lines.
+\alignauthor Izabel M. Great\\
+\affaddr{Computer Science and Engineering Department\\
+ 	Southern Methodist University\\
+	Dallas, Texas USA}\\
+\email{imgreat@smu.edu}
+%
+\alignauthor Ignatio P. Freely\\
+\affaddr{Computer Science and Engineering Department\\
+ 	Southern Methodist University\\
+	Dallas, Texas USA}\\
+\email{ipfreely@smu.edu}
+%
+\alignauthor Daniel W. Engels\\
+\affaddr{Computer Science and Engineering Department\\
+ 	Southern Methodist University\\
+	Dallas, Texas USA}\\
+\email{dwe@smu.edu}
+%\and  % use '\and' if you need 'another row' of author names
+%------ Uncomment the following for editorial submissions to CCR
+%\begin{tabular}{c}
+%{\normalsize This article is an editorial note submitted to CCR. It has NOT been peer reviewed.}\\
+%{\normalsize The authors take full responsibility for this article's
+%technical content. Comments can be posted through CCR Online.}
+%\end{tabular}
+%}
+}
+
+%--- Begin the Document
+\begin{document}
+
+%---- Create the title
+\maketitle
+
+%---- Abstract
+% The abstract is a 100 word summary of the problem addressed in the paper, the basic thesis and/or 
+% the contributions of the paper, and the primary results and conclusions presented in the paper.
+\begin{abstract}
+The abstract summarizes the problem, the basic approach, and the primary results and conclusions of the work. This is effectively a 100 word ``paper trailer'' that captures the reader's attention and motivates them to read the entire paper even though the abstract gives away the plot and ending.
+\end{abstract}
+
+%---- Categories and Subject Descriptors
+% Use this field to indicate the research categories within which this work is located. The \category command
+% has three required fields and a fourth optional field.
+\category{H.4}{Information Systems Applications}{Miscellaneous}
+
+%---- General Terms
+%
+\terms{Theory}
+
+%---- Keywords
+%
+\keywords{\LaTeX, CCR submission}
+
+%----Main Body of the Paper
+
+\section{Introduction}
+
+\section{Conclusions}
+
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography file located in the same directory as this file
+
+\balancecolumns
+%---- End the Document
+\end{document}
+
+
+
+
