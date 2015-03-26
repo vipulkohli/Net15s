@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.*;
+import java.util.*;
 
 public class Infout{
 
@@ -33,16 +34,65 @@ class GraphicsExampleComponent extends JComponent{
 		int width = getWidth();
 		int height = getHeight(); 
 			
-		g2.setColor(Color.red);
-		// Rectangles are left margin, top margin, width, height
-		Rectangle rect1 = new Rectangle(5, 10, 30, 50);
-		g2.draw(rect1);
-
-		g2.setColor(Color.green);
-		Rectangle rect2;
-		rect2 = new Rectangle(width / 2 + 5, 10, width, 50);
-		g2.fill(rect2);
-
+		int div = width / 10;
+		int divH = height / 10;
+		for(int x = 0; x < 10; x++){
+			for(int y = 0; y < 10; y++){		
+				if( (x < 3 && y < 3) || (y == 6 && x == 5) )
+					g2.setColor(Color.red);
+				else
+					g2.setColor(Color.blue);
+			// Rectangles are left margin, top margin, width, height
+				Rectangle rect1 = new Rectangle(div * x, divH * y, div, divH);
+				g2.draw(rect1);
+				g2.fill(rect1);
+				
+			}
+		}
+		ArrayList <Double>ptlist = new ArrayList<Double>();
+		double srcX, srcY, destX, destY;
+		for (int node = 0; node < 10; node++){
+			srcX = Math.random() * width;
+			srcY = Math.random() * height;
+			ptlist.add(srcX);
+			ptlist.add(srcY);
+			for(int count = 0; count < 30; count++){
+				int differential = 200;
+				destX = srcX - differential / 2 + Math.random() * differential;
+				destY = srcY - differential / 2 + Math.random() * differential;
+				Line2D.Double vertical = new Line2D.Double(srcX,srcY,destX, destY);
+				float dash1[] = {10.0f};
+				/*BasicStroke dashed = new BasicStroke(1.0f,
+                        BasicStroke.CAP_BUTT,
+                        BasicStroke.JOIN_MITER,
+                        10.0f, dash1, 0.0f);*/
+                 g2.setStroke(new BasicStroke(2));
+				//g2.setStroke(dashed);
+				g2.setColor(Color.white);
+				g2.draw(vertical);
+			}
+		}
+		
+		Iterator <Double>itr = ptlist.iterator();
+		srcX = itr.next();
+		srcY = itr.next();
+		while(itr.hasNext()){
+			destX = itr.next();
+			destY = itr.next();
+			Line2D.Double vertical = new Line2D.Double(srcX,srcY,destX, destY);
+			float dash1[] = {10.0f};
+			/*BasicStroke dashed = new BasicStroke(1.0f,
+                    BasicStroke.CAP_BUTT,
+                    BasicStroke.JOIN_MITER,
+                    10.0f, dash1, 0.0f);*/
+             g2.setStroke(new BasicStroke(2));
+			//g2.setStroke(dashed);
+			g2.setColor(Color.white);
+			g2.draw(vertical);
+			srcX = destX;
+			srcY = destY;
+		}
+/*
 		g2.setColor(Color.blue);
 		Ellipse2D.Double ellipse;
 		ellipse = new Ellipse2D.Double(5, 
