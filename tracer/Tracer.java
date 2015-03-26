@@ -51,7 +51,7 @@ public class Tracer extends Thread{
 	
 	public static void runList( String [] list ) throws Exception{
 		System.out.println(list[0].length());
-		for(int k = 3231; k < list.length; k++){
+		for(int k = 3389; k < list.length; k++){
 			for(int nation = 1; nation <= 12; nation += 6)
 				try{ 
 					System.out.println("Index: " + k);
