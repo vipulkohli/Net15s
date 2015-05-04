@@ -1,0 +1,245 @@
+Abstract  (update) All
+Intro  (write)  Alec
+Related  (add more) Vipul
+Tom - dimes
+Tom - bgp topology
+Tom - ISP topology using traceroute
+Method  (add more)  Alec
+Results  (write) Tom
+Analysis  (write) Tom
+Conclusion  (write) Vipul
+
+
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes-this is V2.0-May 2012
+%\documentclass[letterpaper, twocolumn, 10pt]{article}
+\documentclass{sigcomm-alternate}
+\usepackage{setspace}
+\usepackage{cite}
+\begin{document}
+%
+% --- Author Metadata here ---
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden-IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden-IF NEED BE.
+% --- End of Author Metadata ---
+\title{An Exploration into the Connectivity and Technology Creating the Internet Worldwide}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+%\numberofauthors{4} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\numberofauthors{3}
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+{Thomas Kennedy}\\
+       \affaddr{Southern Methodist University}\\
+       \email{tkennedy@smu.edu}\\
+% 2nd. author
+\alignauthor
+{Alec Siems}\\
+       \affaddr{Southern Methodist University}\\
+       \email{asiems@smu.edu}\\
+\and  % use '\and' if you need 'another row' of author names
+% 3rd. author
+\alignauthor
+{Vipul Kohli}\\
+       \affaddr{Southern Methodist University}\\
+       \email{vkohli@smu.edu}
+}
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+\date{February 4 2015}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+
+\begin{abstract}
+    There is much interest by the general public in determining which factors have built or limited the modern Internet. The purpose of this paper is to represent the connectivity and physical media used throughout the Internet and explore the topology of international networks. This purpose is achieved through research and experimentation into Internet Service Provider (ISP) network maps, country demographics, and software tools for worldwide Internet routing. Among these software tools are IP2Location and BGPlay. This paper also explores the contributions of politics to the global Internet connectivity and generalizes upon the routing patterns observed between worldwide domestic and international ISPs servicing both edge and transit core networks.
+\end{abstract}
+
+\section{Introduction}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\cite{latexcompanion} consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur\cite{einstein} adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit\cite{knuthwebsite} in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+\section{Related Work}
+
+Tannenbaum and Wetherall \cite{tannenbaum} identify the basic architecture of connectivity between routers and destination hosts on the Internet and their associated interior and exterior gateway protocols used for the intradomain and interdomain routing. Open Shortest Path First (OSPF) and Intermediate-System (IS-IS) are the common protocols used for intradomain routing in company networks and ISP networks, respectively. The properties of load balancing and hierarchical support of these protocols are relevant to our research. Each independent network is called an autonomous system (AS), and each AS can be divided into multiple areas. Every AS has a backbone area which contains the routers to connect to all the peripheral areas. Area border routers connect multiple areas and AS boundary routers connect multiple ASes. With the division into areas and ASes, intradomain networks can stretch long distances geographically. Due to the politics involved with interdomain routing, an exterior gateway protocol, the Border Gateway Protocol (BGP) is used to route between foreign ASes. BGP supports peering between neighboring foreign ASes as well as transit through a higher-level ASes.  
+
+Cheswick and Burch \cite{ches} collected Traceroute data of more than a hundred thousand nodes of the Internet in June of 1999. Their Traceroute program sent out small datagram (UDP) packets, with different hop counts set for each packet’s time-to-live (TTL) field of the header. With each hop, the TTL was decremented until reaching zero. At the TTL of zero, the receiving node returned an Internet Control Message Protocol (ICMP) packet to their sender reporting “TTL exceeded.” Cheswick and Burch’s Traceroute interpreted these ICMP error reporting packets as hop information for their data collection scheme. While most of the ICMP packets were successfully received by their Traceroute, some packets failed to return due to timeouts and firewalls along the way. They were blindly sending packets to the large list of numerical addresses without any expectation of packets reaching working hosts or UDP services, but ICMP returned information for each successful hop. Although their list of destination addresses lacked context, the routes they were able to trace were very insightful in planning our research for this paper. Cheswick and Burch documented their Traceroute results well which helped us interpret the results in the Traceroute program for our research.
+
+The Traceroute program used in this research also used tracing via ICMP response packets. However, the packets sent were TCP/IP packets bound for active Web servers hosting web sites. Therefore, a Web page was expected through a Web browser on the sending host if the connection to the IP address was successful. Cheswick and Burch’s documentation of Traceroute was very useful. They documented three possible successful hop IP address details that could be received through the Domain Name System (DNS). If the domain name associated with the IP address of the router on the hop is available, Traceroute shows the domain name, and these domain names contain ISP identification details. If the domain is not configured, Traceroute clearly states so but still gives the IP address. Otherwise, only an IP address of the hop is returned, meaning that it is not associated to any domain name.
+
+Cheswick and Burch visualized their data on several graphs of color-coded nodes and links. A graph was visualized for each of the following four metrics: distance from the test host, ISP name, top-level domain name, and city-state. Their graphs, although now outdated, effectively portray the topology and organization of the different networks on the Internet in 1999. Their visualizations served as inspiration for our research in mapping the Internet of 2015, a time in which more meaningful metrics can be measured of the Internet as the Internet has become an ubiquitous tool for people and software alike on a worldwide scale. Their 1999 graphs show widespread networks including AT&T at the time as having a foundation with a backbone whereas other networks including Vodafone (cw.net) taking on star formations with all communication transiting through central regional routers. Just as Cheswick and Burch found regional hotspots to identify network organizations in 1999, our research also focused on identifying hotspots in the Internet of 2015, a time where more ISPs are connecting the Internet with more nodes to sample.
+
+From May 1 to May 10, 1999, Cheswick and Burch monitored the reach of the Internet in Yugoslavia during the Serbian war. Nodes were disappearing and reappearing daily with their Traceroute monitoring as sections of the power grid were lost and restored in Serbia and Bosnia throughout the war. Erection of firewalls and privacy has the same effect on connectivity in 2015 as we observed in our research.
+
+The Internet Architecture Board (IAB) not only has identified an Internet scalability problem with the current address space, but also has identified significant disadvantages with switching to IPv6. The two solutions they do give to solving the problem are separation of edge networks or elimination through multihoming the edge networks \cite{scalability}. The separation solution involves adding a layer between the edge network and the transit core while the elimination solution requires edge networks to accept addresses from their providers.
+
+Many ISPs include a map of their network on their Web sites showing their data centers and the types of physical media used to connect them. Some studies have generated maps showing network or population statistics while other studies have taken different approaches to map all the connections on the Internet from a particular point of view. A particular study used ICMP ping, nmap port scans, reverse DNS records, and traceroute records to determine that over 3.7 billion hosts exist on the Internet , but authenticity of the data was a serious concern \cite{botnet}. We took authenticity of our data collected as a critical factor by cross-checking across multiple sources. This study also emphasized the interest of the general public in capturing the size of the Internet. This public interest appreciates the value of the field of research of routing across the worldwide Internet.
+
+\section{Research Methodology}
+
+This sections describes the tools and procedure used to collect and analyze ISP and routing data in order to produce a visualization of the Internet to every country and continent which shows the topology, material, and routing involved.
+
+\subsection{Source and Destination Selection}
+In order to map the worldwide Internet, a list of IP addresses of servers in each country in the world was required. Therefore, we chose a list of URLs of the Web sites of universities in every country provided by Univ.cc [3]. We targeted university Web sites over commercial Web sites since universities are more likely to have their Web servers in-house whereas commercial Web sites mostly outsource their server needs. Each country’s list from Univ.cc is proportional to the country’s area. For example, larger countries like Argentina have 83 URLs while a smaller country like Andorra has only 1 university.  
+
+After the URLs were collected, the next task was to determine the Internet routing to each of the university URLs. The IP2Location Traceroute [4] software converts these URLs to their respective IP addresses and determines the route to each of the IP addresses from the IP address of the chosen IP2Location host server. The IP2Location Traceroute application allows users to choose a server either in the United States (Phoenix, Dallas, or Los Angeles), Canada (Montreal), Israel (Tel Aviv), France (Paris), Germany (Dusseldorf), Netherlands (Amsterdam), England (London), Singapore, Japan (Tokyo), or Malaysia (Kuala Lumpur), a total of twelve servers in ten countries on three continents. The source server IP addresses are available, and these IP addresses would become the destinations for our bidirectional route trace attempts using worldwide VPN software tools available to us.
+
+The Center for Applied Internet Data Analysis (CAIDA) ranks several global ISPs along with their AS numbers. These AS numbers were applied in our experiment to Daniel Austin’s BGP Lookup Tool to achieve an IP prefix which was then supplied to the BGPlay tool. CAIDA’s ranked table of ISPs and their AS numbers provided the starting nodes for our BGP research. The top AS numbers were converted to IP prefixes through Austin’s BGP lookup tool which are the parameters used in BGP routing.
+
+\subsection{Software Tools}
+IP2Location provided each node’s city, state, and country of physical location. We authenticated IP2Location's database as containing physical locations by checking controversial offshore island URLs and Antarctica IP addresses both on the IP2Location and the RIPE databases. Some software packages misinterpret a company headquarter location as the server's physical location or incorrectly approximates the location simply by the IP address.  
+
+With accurate worldwide location information available to us, our aim became to originate the Traceroute from a few countries but reach all the countries with plans to trace the networks of all the major global ISPs and their hotspot cities.
+
+IP2Location was an effective tool is determining routes in one direction to each of the countries, but we also wanted to generalize the behavior of routing in the reverse direction from the destination countries to the IP2Location server locations. To do so, we used VisualRoute and HMA Pro VPN. Virtual Private Networks (VPNs) allow remote hosts to connect to resources as if being local on a private network. With the HMA Pro VPN, we were able to access the Internet and run Traceroute from the point of view of a server in any country of our choice with the IP address available to verify the location in IP2Location. VisualRoute is a Traceroute geographical mapping tool  that originates based on our laptops' Internet connection which would be originating in another country with the use of the HMA Pro VPN.
+
+VisualRoute was more effective than IP2Location in identifying firewalls and unresponsiveness en route. However, IP2Location was more knowledgeable in conversion from router IP address to physical location on successful hops. VisualRoute attempted to estimate the location of IP addresses unknown to its database, and IP addresses showing unknown locations and ISPs were common in VisualRoute that were identifiable with IP2Location. Through superimposition of both of the software tools, bidirectional generalizations were possible in both the doubly-connected cases and the singly-connected cases where firewalls and privacy were involved.
+
+BGPlay is a JavaScript visualization tool that generates a graph representation of the links within five hops from the source IP prefix. Each of the linking nodes consist of the AS and ISP registration details which were investigated further to determine interdomain connectivity.
+
+These tools allowed us to determine the ISP connections to all the countries of the world. With the ISP data, we were identify the physical media through research into ISP network maps and readily available lists of mobile carriers in each of the different countries.
+ 
+
+\subsection{Measurement Methodology}
+
+NEED TO DO THIS PART
+
+%\vfill
+%\columnbreak
+
+\section{Result Analysis}
+This section presents the measurement results for the experimental procedures described in Section 3 and reviews the visualizations shown in in the Appendix. All visualizations show some significant property of Internet connectivity.
+\indent
+\indent 5 February 2015 - Research Proposal Due \\
+\indent 12 February 2015 - Collected Destination URLs \\
+\indent 19 February 2015 - Traceroute Source/Destination \\
+\indent 26 February 2015 - Map Route IP Addresses to Location\\
+\indent 5 March 2015 - Format Data, Interim Draft \\
+\indent 5 March 2015 - Interim Draft Due \\
+\indent 12 March 2015 - Choose Map Graphic and Develop Legend \\
+\indent 19 March 2015 - Add Routers to Map \\
+\indent 26 March 2015 - Add Connections to Map \\
+\indent 2 April 2015 - Analyze and Draw Conclusions\\
+\indent 9 April 2015 - Finish Project Report and Presentation\\\
+
+
+\bibliographystyle{ieeetr}
+\bibliography{example}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TK
+Spring, Mahajan, and Wetherall from the University of Washington addressed the task of mapping ISPs in “Measuring ISP Topologies with Rocketfuel”. The goal of their work was to obtain realistic and reliable data regarding the router level distribution of ISP networks. The expected end result would be an ISP map consisting of all sources, destinations, routing servers, composing multiple Autonomous Systems (ASes). After collecting all in between hops of their trace, they could categorized each stop as either Backbone, Core, or Access routers. This resulted in multiple nice looking graphs of the United States, all representing an individual ISP, with connections from various big cities connecting to each other.                  
+                    
+Andersen, Feamster, Bauer, and Balakrishna of MIT addressed similar issues in “Topolgy Inference from BGP Routing Dynamic”, also using RocketFuel to route across the country. But instead of a geographic representation of this data, the MIT group gathered metrics of speed and reliability on each ISP while accessing routes via BGP tables. A integral part of this research was the inference of topology, not true graphing, of a network. 
+                
+Results
+
+
+Physical Media
+Transit cores were run 
+
+After gathering the massive amounts of traceroute data, the next step was to parse the data down. Using a custom made Python parser, a few things became apparent: the results were closely aligned with what was predicted would happen, and the data has a few particular flaws.
+ 
+After collecting data, it was translated into Google Charts, the Geocharts allowing us to represent any data wanted on a world map. Below, view the map that represents total hits per country. At first glance, it is apparent that the traffic in each country is what we expected, with the U.S., Canada, and much of Western Europe all green to represent that each of these countries has a large number of hits during the traceroute. One country that produced confusing results was China. China aggregated a total of 1238 hits in the entire country – a number on par with Slovakia’s 1268 hits. Taking those numbers into account, the comparison of the number of universities in each country really questioned our data. China with 389 universities (via Univ.cc), to Slovakia’s 33, China has more than 10 times the number of universities, and had 10 times the number of destination addresses in our traceroute queries. China should return approximately 10 times the number of hits, but with the lack of that, there must be a reasonable explanation for the lower than expected numbers. One possible explanation is that our packets randomly got dropped. This is highly unlikely, as China should have many more hits, and random occurrences probably couldn’t cause massive drops like this. The reason we find the most likely would be the ‘Golden Shield Project’ of China, a censorship program in China to block unfavorable international packets from entering the country. Obviously not all of our China destinations were dropped, but the numbers were certainly skewed to provide confusing results. 
+
+    Another considerable flaw in our methodology remains to be the distribution of our source servers for the traceroute call. With only 12 sources throughout 10 countries in the world, there is a disproportionate number of hits in countries that have these source servers. The United States holds three, in Dallas, Los Angeles, and Phoenix. Below you’ll see the map representing the number of hits in each country, divided by the total population of that country, and with stars approximately representing each source server. Each of the source countries is bright green, as expected, but there are a number of countries that still had high traffic per capita, and without a source server. The notable, but not exhaustive list includes Australia, Iceland, Sweden, New Zealand, and Oman. Countries like Australia, Sweden and Iceland all fall into the top 10 countries in the world in GDP per citizen. GDP per citizen is a good metric to estimate the country’s internet infrastructure, and to estimate the number of universities in that country. Oman, on the other hand, is not seen at the top. The home of only 11 universities, Oman is the statistical outlier as far as traceroute traffic. So while there are results that stick out, we consistently see that the countries with these host servers will have the most traffic in the data, and countries without many universities will not have much traffic. 
+
+    A third flaw in our methodology would be the lack of consideration for university servers hosted in a country outside of where the university is. Below you’ll find a table from our traceroute data, it displays the source and destination, and every hop from the IP2Location server (Dallas in this case) to afghanuniversity.edu.af. It’s easy to see that this university is native to Afghanistan, and it would be expected for the server to be hosted in Afghanistan. Instead, the university server is hosted in Chicago, Illinois, and the traceroute never leaves the United States. This could provide drastic results compared to the expected version, as this traceroute to an Afghan university never reaches Afghanistan, and it never even gets close. It is very possible that this had a considerable effect on our data, and unfairly skews the data towards countries that host multiple universities.
+
+    
+
+        
+
+                
+            
+        
+
+                
+
+Alec Siems
+There is much interest by the general public in determining which factors have built or limited the modern Internet. The purpose of this paper is to represent the connectivity and physical media used throughout the Internet and explore the topology of international networks. This purpose is achieved through research and experimentation into Internet Service Provider (ISP) network maps, country demographics, and software tools for worldwide Internet routing. Among these software tools are IP2Location and BGPlay. This paper also explores the contributions of politics to the global Internet connectivity and generalizes upon the routing patterns observed between worldwide domestic and international ISPs servicing both edge and transit core networks.
+
+
